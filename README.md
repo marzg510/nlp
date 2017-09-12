@@ -13,6 +13,20 @@ pip install tensorflow
 
 pip install keras
 
+```
+sudo apt-get install -y python-pip python-dev
+sudo apt-get install -y python-tk graphviz
+# install tensorflow
+pip install --upgrade tensorflow
+# install keras
+pip install --upgrade keras
+# install hdf5
+pip install --upgrade h5py
+# install for visualize
+pip install matplotlib
+pip install pydot graphviz
+```
+
 ## Keywords
 
 ### MLP
@@ -68,18 +82,4 @@ pip install keras
   * 多層パーセプトロン
 * デビッド・ラメルハートとジェームズ・マクレランドはパーセプトロンを多層にし、バックプロパゲーション（誤差逆伝播学習法）で学習させることで、線型分離不可能な問題が解けるように、単純パーセプトロンの限界を克服した。
 
-
-```
-sudo apt-get install -y python-pip python-dev
-sudo apt-get install -y python-tk graphviz
-# install tensorflow
-pip install --upgrade tensorflow
-# install keras
-pip install --upgrade keras
-# install hdf5
-pip install --upgrade h5py
-# install for visualize
-pip install matplotlib
-pip install pydot graphviz
-```
 
