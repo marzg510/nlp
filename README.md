@@ -69,19 +69,9 @@ pip install pydot graphviz
   * 階段関数 (ステップ関数)
      正の数では１を返し、負の数では０を返すような関数
 
-### 損失関数(loss function) 誤差関数(error function)とも
-* https://keras.io/ja/getting-started/sequential-model-guide/
-* モデルが最小化しようとする目的関数です．引数として，定義されている損失関数の識別子を文字列として与える（categorical_crossentropyやmseなど），もしくは目的関数を関数として与えることができます．
-* http://qiita.com/mine820/items/f8a8c03ef1a7b390e372
-* ようは2つの値の差が小さくなるような関数のこと
-* 最適な状態からどのくらいの誤差があるのかを表す関数
- - 交差エントロピー誤差関数E(w,b)
-
-#####* =>バックプロパゲーションにおいて、誤差を最小化するための関数?
-
 ### 尤度関数 ゆうど〜 (likelihood function)
 
-* 最尤推定するための関数
+* 重みw,バイアスbを最尤推定するための関数
 * 最尤とは
  - 統計学において、与えられたデータからそれが従う確率分布の母数を点推定する方法である。
 * https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1439818099
@@ -89,6 +79,17 @@ pip install pydot graphviz
  - 最尤推定量は、汎用性があり、少ない観測値からも一定の推定量を導ける点で有用ですが、必ずしも高い精度で値を推定しているとは言えません。
 * https://www.slideshare.net/iranainanimosuteteshimaou/ss-55173144
  - 観測されたデータDから分布H（のパラメータ）を推定すること
+
+### 損失関数(loss function) 誤差関数(error function)とも
+* ど
+* https://keras.io/ja/getting-started/sequential-model-guide/
+* モデルが最小化しようとする目的関数です．引数として，定義されている損失関数の識別子を文字列として与える（categorical_crossentropyやmseなど），もしくは目的関数を関数として与えることができます．
+* http://qiita.com/mine820/items/f8a8c03ef1a7b390e372
+* ようは2つの値の差が小さくなるような関数のこと
+* 最適な状態からどのくらいの誤差があるのかを表す関数
+ - 交差エントロピー誤差関数E(w,b)
+
+~~* =>バックプロパゲーションにおいて、誤差を最小化するための関数?~~
 
 ### 最適化問題(optimization problem)
 
