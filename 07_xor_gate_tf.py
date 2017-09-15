@@ -33,7 +33,7 @@ for epoch in range(4000):
     x: X,
     t: Y
   })
-  # free_dictは値を変数に入れること(x<=X,y<=Y)
+  # feed_dictは値を変数に入れること(x<=X,t<=Y)
 
   if epoch % 1000 == 0:
       print('epoch:',epoch)
