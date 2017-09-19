@@ -86,6 +86,7 @@ pip install pydot graphviz
 
 * 尤度関数の対数をとって符号を反転したもの
   - -log L(w,b)
+  - 尤度関数は積になり（Π＝Σの掛け算版）、微分が難しくなるため簡単にする（ということらしい）
 * https://keras.io/ja/getting-started/sequential-model-guide/
   - モデルが最小化しようとする目的関数です．引数として，定義されている損失関数の識別子を文字列として与える（categorical_crossentropyやmseなど），もしくは目的関数を関数として与えることができます．
 * http://qiita.com/mine820/items/f8a8c03ef1a7b390e372
@@ -106,11 +107,12 @@ pip install pydot graphviz
 ### 最適化アルゴリズム
 
 * 引数として，定義されている最適化手法の識別子を文字列として与える（rmspropやadagradなど），もしくは Optimizerクラスのインスタンスを与えることができます
-* =>バックプロパゲーションにおいて、誤差を最適化するための関数?
   * 勾配降下法(gradient descent)
   * sgd(確率的勾配降下法)
   * ミニバッチ勾配降下法
   * rmsprop
+
+~~* =>バックプロパゲーションにおいて、誤差を最適化するための関数?~~
 
 ### 学習率
 
