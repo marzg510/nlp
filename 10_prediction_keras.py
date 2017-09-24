@@ -3,8 +3,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.optimizers import SGD
 from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.utils import shuffle
+#from sklearn.model_selection import train_test_split
+#from sklearn.utils import shuffle
 
 N = 300
 X, y = datasets.make_moons(N, noise=0.3)
