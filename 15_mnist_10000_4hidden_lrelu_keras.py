@@ -4,6 +4,7 @@ from keras.layers import Dense, Activation
 from keras.optimizers import SGD
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
+from keras.layers.advanced_activations import LeakyReLU
 #from sklearn.utils import shuffle
 
 mnist = datasets.fetch_mldata('MNIST original', data_home='.')
@@ -25,19 +26,21 @@ n_in = len(X[0]) # 784 入力層のノード(ニューロン)数
 n_hidden = 200    # 隠れ層のノード(ニューロン)数
 n_out = len(Y[0]) # 10 出力層のノード(ニューロン)数
 
+alpha = 0.01
+
 model = Sequential()
 # 入力層~隠れ層
 model.add(Dense(n_hidden, input_dim=n_in))
-model.add(Activation('sigmoid'))
+model.add(LeakyReLU(alpha=alpha))
 
 model.add(Dense(n_hidden))
-model.add(Activation('sigmoid'))
+model.add(LeakyReLU(alpha=alpha))
 
 model.add(Dense(n_hidden))
-model.add(Activation('sigmoid'))
+model.add(LeakyReLU(alpha=alpha))
 
 model.add(Dense(n_hidden))
-model.add(Activation('sigmoid'))
+model.add(LeakyReLU(alpha=alpha))
 
 # 隠れ層~出力層
 model.add(Dense(n_out))
@@ -59,8 +62,4 @@ loss_and_metrics = model.evaluate(X_test, Y_test)
 
 print()
 print(loss_and_metrics)
-
-# Epoch 1000/1000
-# 8000/8000 [==============================] - 0s - loss: 0.0140 - acc: 0.9985     
-# [0.38135323616862299, 0.91249999999999998]
 

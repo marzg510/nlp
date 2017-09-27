@@ -28,16 +28,16 @@ n_out = len(Y[0]) # 10 出力層のノード(ニューロン)数
 model = Sequential()
 # 入力層~隠れ層
 model.add(Dense(n_hidden, input_dim=n_in))
-model.add(Activation('sigmoid'))
+model.add(Activation('tanh'))
 
 model.add(Dense(n_hidden))
-model.add(Activation('sigmoid'))
+model.add(Activation('tanh'))
 
 model.add(Dense(n_hidden))
-model.add(Activation('sigmoid'))
+model.add(Activation('tanh'))
 
 model.add(Dense(n_hidden))
-model.add(Activation('sigmoid'))
+model.add(Activation('tanh'))
 
 # 隠れ層~出力層
 model.add(Dense(n_out))
@@ -60,7 +60,13 @@ loss_and_metrics = model.evaluate(X_test, Y_test)
 print()
 print(loss_and_metrics)
 
-# Epoch 1000/1000
-# 8000/8000 [==============================] - 0s - loss: 0.0140 - acc: 0.9985     
-# [0.38135323616862299, 0.91249999999999998]
+#Epoch 1000/1000
+#8000/8000 [==============================] - 0s - loss: 0.1267 - acc: 0.9585     
+#2000/2000 [==============================] - 0s     
+#
+#[0.29888572448492051, 0.91349999999999998]
+#
+#real	12m49.822s
+#user	33m32.852s
+#sys	0m56.756s
 
