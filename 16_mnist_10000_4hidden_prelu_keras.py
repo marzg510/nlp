@@ -4,7 +4,7 @@ from keras.layers import Dense, Activation
 from keras.optimizers import SGD
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from keras.layers.advanced_activations import LeakyReLU
+from keras.layers.advanced_activations import PReLU
 #from sklearn.utils import shuffle
 
 mnist = datasets.fetch_mldata('MNIST original', data_home='.')
@@ -31,17 +31,16 @@ alpha = 0.01
 model = Sequential()
 # 入力層~隠れ層
 model.add(Dense(n_hidden, input_dim=n_in))
-#model.add(LeakyReLU(alpha=alpha))
-model.add(LeakyReLU())
+model.add(PReLU(alpha=alpha))
 
 model.add(Dense(n_hidden))
-model.add(LeakyReLU())
+model.add(PReLU(alpha=alpha))
 
 model.add(Dense(n_hidden))
-model.add(LeakyReLU())
+model.add(PReLU(alpha=alpha))
 
 model.add(Dense(n_hidden))
-model.add(LeakyReLU())
+model.add(PReLU(alpha=alpha))
 
 # 隠れ層~出力層
 model.add(Dense(n_out))
@@ -66,12 +65,4 @@ loss_and_metrics = model.evaluate(X_test, Y_test)
 print()
 print(loss_and_metrics)
 
-#Epoch 50/50
-#8000/8000 [==============================] - 0s - loss: 2.2668 - acc: 0.8567     
-#1760/2000 [=========================>....] - ETA: 0s
-#[2.8521125707626345, 0.82050000000000001]
-#
-#real	0m51.960s
-#user	1m41.524s
-#sys	0m2.860s
 

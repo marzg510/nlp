@@ -60,6 +60,7 @@ pip install pydot graphviz
 ### エポック数
 * http://st-hakky.hatenablog.com/entry/2017/01/17/165137
 * エポック数とは、「一つの訓練データセットを何回繰り返して学習させるか」の数のことです。
+* Early Stopping
 
 ### 活性化関数(Activation Function)
 * 入力値がしきい値を超えると急激に変化する関数
@@ -118,6 +119,14 @@ pip install pydot graphviz
 ### 学習率
 
 * ハイパーパラメータの一種
+* 最初は大きく、徐々に小さくしていくのがよい
+* モメンタム:学習率そのものは固定だが、調整項で擬似的にこれを表現
+* Nesterovモメンタム
+* Adagrad:学習率そのものを自動調整
+* Adadelta
+* RMSprop
+* Adam
+
 
 ### ハイパーパラメータ
 

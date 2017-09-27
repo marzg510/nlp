@@ -50,8 +50,10 @@ model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=0.01), metrics=[
 '''
 モデル学習
 '''
-epochs = 1000
-batch_size = 100
+#epochs = 1000
+epochs = 50
+#batch_size = 100
+batch_size = 200
 model.fit(X_train, Y_train, epochs=epochs, batch_size=batch_size)
 
 # 予測
@@ -60,6 +62,7 @@ loss_and_metrics = model.evaluate(X_test, Y_test)
 print()
 print(loss_and_metrics)
 
+### batch=100
 #Epoch 1000/1000
 #8000/8000 [==============================] - 0s - loss: 14.4720 - acc: 0.1021     
 #1888/2000 [===========================>..] - ETA: 0s
@@ -68,4 +71,14 @@ print(loss_and_metrics)
 #real	14m46.777s
 #user	33m13.556s
 #sys	0m59.644s
+
+### batch=200
+#Epoch 50/50
+#8000/8000 [==============================] - 0s - loss: 0.0588 - acc: 0.9964     
+#1920/2000 [===========================>..] - ETA: 0s
+#[0.45701094996416941, 0.92400000000000004]
+#
+#real	0m50.525s
+#user	1m36.032s
+#sys	0m2.616s
 

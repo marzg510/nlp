@@ -65,4 +65,3 @@ accuracy_rate = accuracy.eval(session=sess, feed_dict={
 })
 print('accuracy: ', accuracy_rate)
 
-

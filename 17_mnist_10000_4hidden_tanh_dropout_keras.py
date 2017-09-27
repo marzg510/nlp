@@ -4,8 +4,7 @@ from keras.layers import Dense, Activation
 from keras.optimizers import SGD
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from keras.layers.advanced_activations import LeakyReLU
-#from sklearn.utils import shuffle
+from keras.layers.core import Dropout
 
 mnist = datasets.fetch_mldata('MNIST original', data_home='.')
 
@@ -26,22 +25,23 @@ n_in = len(X[0]) # 784 入力層のノード(ニューロン)数
 n_hidden = 200    # 隠れ層のノード(ニューロン)数
 n_out = len(Y[0]) # 10 出力層のノード(ニューロン)数
 
-alpha = 0.01
-
 model = Sequential()
 # 入力層~隠れ層
 model.add(Dense(n_hidden, input_dim=n_in))
-#model.add(LeakyReLU(alpha=alpha))
-model.add(LeakyReLU())
+model.add(Activation('tanh'))
+model.add(Dropout(0.5)) # 0.5=ドロップアウト確率
 
 model.add(Dense(n_hidden))
-model.add(LeakyReLU())
+model.add(Activation('tanh'))
+model.add(Dropout(0.5)) # 0.5=ドロップアウト確率
 
 model.add(Dense(n_hidden))
-model.add(LeakyReLU())
+model.add(Activation('tanh'))
+model.add(Dropout(0.5)) # 0.5=ドロップアウト確率
 
 model.add(Dense(n_hidden))
-model.add(LeakyReLU())
+model.add(Activation('tanh'))
+model.add(Dropout(0.5)) # 0.5=ドロップアウト確率
 
 # 隠れ層~出力層
 model.add(Dense(n_out))
@@ -54,10 +54,8 @@ model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=0.01), metrics=[
 '''
 モデル学習
 '''
-#epochs = 1000
-epochs = 50
-#batch_size = 100
-batch_size = 200
+epochs = 1000
+batch_size = 100
 model.fit(X_train, Y_train, epochs=epochs, batch_size=batch_size)
 
 # 予測
@@ -66,12 +64,12 @@ loss_and_metrics = model.evaluate(X_test, Y_test)
 print()
 print(loss_and_metrics)
 
-#Epoch 50/50
-#8000/8000 [==============================] - 0s - loss: 2.2668 - acc: 0.8567     
-#1760/2000 [=========================>....] - ETA: 0s
-#[2.8521125707626345, 0.82050000000000001]
+#Epoch 1000/1000
+#8000/8000 [==============================] - 1s - loss: 0.2861 - acc: 0.9183     
+#1696/2000 [========================>.....] - ETA: 0s
+#[0.26412505704164507, 0.9355]
 #
-#real	0m51.960s
-#user	1m41.524s
-#sys	0m2.860s
+#real	18m22.034s
+#user	38m59.460s
+#sys	1m17.564s
 
