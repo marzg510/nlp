@@ -1,0 +1,48 @@
+# 加工
+cat file/csv/senryudb.csv | sed -e 's/　//g' | awk -F, '{print $1}' | grep '　'
+
+
+# すべてのモデレートの集計
+cat file/csv/senryudb.csv | awk -F, '{print (length($2) == 0) ? "[non]" : $2}' | sort | uniq -c
+
+# モデレートの変換
+# 優秀＝＞１，そうでもない＝＞0
+cat file/csv/senryudb.csv \
+| sed -e 's/　//g' | sed -e 's/\s*//g' | sed -e 's/\（.*\）//g' | sed -E 's/\(.*\)//g' \
+| awk -F, '
+BEGIN {OFS=","}
+{
+  l = $2;
+  l = length(l) == 0 ? "0" : l;
+  l = l == "［―］" ? "0" : l;
+  l = l == "［ー］" ? "0" : l;
+  l = l == "［五客］" ? "1" : l;
+  l = l == "［人位］" ? "1" : l;
+  l = l == "［佳作］" ? "0" : l;
+  l = l == "［入選］" ? "0" : l;
+  l = l == "［前抜き］" ? "0" : l;
+  l = l == "［十秀］" ? "1" : l;
+  l = l == "［地位］" ? "1" : l;
+  l = l == "［大賞］" ? "1" : l;
+  l = l == "［天位］" ? "1" : l;
+  l = l == "［準賞］" ? "0" : l;
+  l = l == "［特選］" ? "1" : l;
+  l = l == "［秀３］" ? "0" : l;
+  l = l == "［秀句］" ? "0" : l;
+  l = l == "［秀逸］" ? "1" : l;
+  l = l == "［秀逸１］" ? "0" : l;
+  l = l == "［軸吟］" ? "1" : l;
+  l = l == "［選者賞］" ? "1" : l;
+  l = l == "［風炎賞］" ? "1" : l;
+  print $1,l;
+}
+' >file/csv/senryudb_labeled.csv
+
+# if文生成
+cat file/csv/senryudb.csv | awk -F, '
+{
+  l = $2;
+  l = length($2) == 0 ? "0" : l;
+  print l;
+}
+' | sort | uniq -c | awk '{print $2}' | grep -v "0" | awk '{print "l = l == \""$1"\" ? \"0\" : l;"}'

@@ -4,6 +4,7 @@
   // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    
     {
       "name": "Python",
       "type": "python",
@@ -203,6 +204,29 @@
       "port": 3000,
       "secret": "my_secret",
       "host": "localhost"
+    },
+    {
+      "name": "Debug Ruby Senryu Scraper",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/senryu",
+      "program": "${file}"
+    },
+    {
+      "name": "Debug Python Senryu",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": true,
+      "pythonPath": "${config:python.pythonPath}",
+      "program": "${file}",
+      "cwd": "${workspaceRoot}/senryu",
+      "env": {},
+      "envFile": "${workspaceRoot}/.env",
+      "debugOptions": [
+        "WaitOnAbnormalExit",
+        "WaitOnNormalExit",
+        "RedirectOutput"
+      ]
     }
-  ]
+   ]
 }

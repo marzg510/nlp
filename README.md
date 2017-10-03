@@ -205,3 +205,70 @@ https://datumstudio.jp/blog/%E3%80%90%E7%89%B9%E5%88%A5%E9%80%A3%E8%BC%89%E3%80%
 
 ### mecab
 
+### mechanizeがないのでmechanicalSoup
+
+pip install MechanicalSoup
+
+やっぱりrubyのmechanizeでやる
+
+
+https://keras.io/ja/datasets/
+ 
+
+### pythonメモ
+
+文字の数値化
+```
+int.from_bytes(u'あ'.encode('utf-8'),'big')
+```
+
+numpyで配列の追加
+```
+import numpy as np
+x = np.array( [] )
+for i in range( 10 ):
+    x = np.append( x, i )
+```
+
+文字列をnumpy配列にする
+```
+np.array(list('あいうえお'))
+```
+
+numpyで次元の変換
+```
+np.zeros(6).reshape(2,3)
+```
+
+文字列を数値化してリストにする
+x = []
+for c in list('あいうえお'):
+  x.append(np.int.from_bytes(c.encode('utf-8'),'big'))
+
+配列の長さを揃える
+y=np.array([])
+y.resize(10,refcheck=False)
+y
+array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+
+csv
+
+```
+import csv
+
+with open('some.csv', 'r') as f:
+    reader = csv.reader(f)
+    header = next(reader)  # ヘッダーを読み飛ばしたい時
+
+    for row in reader:
+        print row          # 1行づつ取得できる
+```
+
+```
+import pandas as pd
+
+df = pd.read_csv('some.csv')
+
+print df       # show all column
+print df['A']  # show 'A' column
+```
