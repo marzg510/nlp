@@ -7,19 +7,19 @@
 ## データ
 
 * 面白くない川柳
- - ここにあるもの全部（35000作品）
- - http://www.okajoki.com/db/search.php?page=327
+  - ここにあるもの全部（35000作品）
+  - http://www.okajoki.com/db/search.php?page=327
 
 * 面白い川柳
- - 第一生命のサラリーマン川柳コンクール
-  - http://event.dai-ichi-life.co.jp/company/senryu/index.html
- - 面白”川柳”のまとめ（絶対、笑える！）
-  - https://matome.naver.jp/odai/2132045818468665101
+  - 第一生命のサラリーマン川柳コンクール
+    - http://event.dai-ichi-life.co.jp/company/senryu/index.html
+  - 面白”川柳”のまとめ（絶対、笑える！）
+    - https://matome.naver.jp/odai/2132045818468665101
 
 * テスト(評価) 用川柳
- - シルバー川柳=>面白いはず
- - http://www.yurokyo.or.jp/news/silversenryu.html
- - +面白くない川柳の一部をテストデータにする
+  - シルバー川柳=>面白いはず
+    - http://www.yurokyo.or.jp/news/silversenryu.html
+  - +面白くない川柳の一部をテストデータにする
 
 ## やり方
 
