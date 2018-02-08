@@ -10,6 +10,8 @@
 awk -F'\t' 'NR>1 {print $5"\t"$6}' reviews.txt | head
 ```
 2. レビューテキストからノイズ除去 <br />とか
+<br />
+\0
 ```
 awk -F'\t' 'NR>1 {print $5"\t"$6}' reviews.txt | sed 's#<br /># #g'
 ```
@@ -35,6 +37,7 @@ awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval}' reviews.txt 
 awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | head > reviews-ccnn-teacher-data01.txt
 awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data02.txt
 awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data03.txt
+awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | sed 's#\x0##g' > reviews-ccnn-train-data04.txt
 ```
 ```
 
