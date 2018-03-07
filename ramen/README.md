@@ -85,3 +85,8 @@ awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' review
 ## command memo
 ### 解凍
 unzip ramendb2.zip
+
+### GPUのステータス確認
+nvidia-smi
+
+
