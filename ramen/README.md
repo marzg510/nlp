@@ -56,22 +56,22 @@ awk -F'\t' 'NR>1 {gsub("<br />"," ",$6);print length($6)}' reviews.txt | sort -g
     - 10万件
     - 初期の分類条件
 - reviews-ccnn-teacher-data01.txt
- -- 判定数値、テキスト
- -- 10件
- -- 初期の分類条件
+    - 判定数値、テキスト
+    - 10件
+    - 初期の分類条件
 - reviews-ccnn-teacher-data02.txt
- -- 判定数値、テキスト
- -- 10万件
- -- 初期の分類条件
+    - 判定数値、テキスト
+    - 10万件
+    - 初期の分類条件
 - reviews-ccnn-teacher-data03.txt
- -- 判定数値、テキスト
- -- 10万件
- -- 2つめの分類条件
+    - 判定数値、テキスト
+    - 10万件
+    - 2つめの分類条件
 - reviews-ccnn-train-data04.txt
- -- 判定数値、テキスト
- -- 10万件
- -- 2つめの分類条件
- -- nullデータの削除版
+    - 判定数値、テキスト
+    - 10万件
+    - 2つめの分類条件
+    - nullデータの削除版
 
 ```
 #awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print $5"\t"eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | head > reviews-ccnn-teacher-data01.txt
