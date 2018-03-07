@@ -40,14 +40,6 @@ awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval}' reviews.txt 
 
 ```
 
-```
-#awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print $5"\t"eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | head > reviews-ccnn-teacher-data01.txt
-awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | head > reviews-ccnn-teacher-data01.txt
-awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data02.txt
-awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data03.txt
-awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | sed 's#\x0##g' > reviews-ccnn-train-data04.txt
-```
-```
 
 4. テキストの最大値を確認
   入力層の要素数を決めたい
@@ -80,3 +72,11 @@ awk -F'\t' 'NR>1 {gsub("<br />"," ",$6);print length($6)}' reviews.txt | sort -g
  -- 10万件
  -- 2つめの分類条件
  -- nullデータの削除版
+
+```
+#awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print $5"\t"eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | head > reviews-ccnn-teacher-data01.txt
+awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | head > reviews-ccnn-teacher-data01.txt
+awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data02.txt
+awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data03.txt
+awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | sed 's#\x0##g' > reviews-ccnn-train-data04.txt
+```
