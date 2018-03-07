@@ -80,3 +80,8 @@ awk -F'\t' 'NR>1 {eval=($5<30 ? 0 : ($5>=70 ? 2 : 1) );print eval"\t"$6}' review
 awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' > reviews-ccnn-teacher-data03.txt
 awk -F'\t' 'NR>1 {eval=($5<50 ? 0 : ($5>=80 ? 2 : 1) );print eval"\t"$6}' reviews.txt | sed 's#<br /># #g' | sed 's#\x0##g' > reviews-ccnn-train-data04.txt
 ```
+
+
+## command memo
+### 解凍
+unzip ramendb2.zip
