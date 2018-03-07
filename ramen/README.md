@@ -52,9 +52,9 @@ awk -F'\t' 'NR>1 {gsub("<br />"," ",$6);print length($6)}' reviews.txt | sort -g
 
 5. 準備データ
 - reviews-ccnn-teacher-data.txt
- - レビュー点数,NEGA/MIDL/POSI判定、テキスト
- - 10万件
- - 初期の分類条件
+    - レビュー点数,NEGA/MIDL/POSI判定、テキスト
+    - 10万件
+    - 初期の分類条件
 - reviews-ccnn-teacher-data01.txt
  -- 判定数値、テキスト
  -- 10件
