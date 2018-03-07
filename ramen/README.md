@@ -3,6 +3,8 @@
 
 ## Character-level CNN
 
+- https://qiita.com/bokeneko/items/c0f0ce60a998304400c8
+
 ### データ加工
 
 1. レビューデータからレビューと点数だけ取り出す
