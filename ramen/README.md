@@ -1,7 +1,7 @@
 # ramen database
 
 
-## Character-based CNN
+## Character-level CNN
 
 ### データ加工
 
